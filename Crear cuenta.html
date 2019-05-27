@@ -1,0 +1,328 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" charset="utf-8">
+<title>Documento sin título</title>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="java.js"></script>
+	<link rel="stylesheet" href="style.css">
+	<style type="text/css">
+	* {
+	margin:0;
+	padding:0;
+}
+		table{
+			width: 100%;
+		}
+		td.in{
+			width: 15%;
+		}
+		td.out{
+			width: 70%;
+		}
+		a{
+			text-decoration: none;
+		}
+		h3.button{
+			background: #233b75;
+			color: white;
+			margin-top: 20px;
+			text-align: center;
+			width: 150px;
+			height: 30px;
+		}
+		h3.button2{
+			background: #d9172e;
+			color: white;
+			margin-top: 20px;
+			text-align: center;
+			width: 150px;
+			height: 30px;
+		}
+ 
+header {
+	width:100%;
+}
+		a.sub{
+			font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+			font-size: 20px;
+		}
+ 
+header nav {
+	width:100%;
+	margin:20px auto;
+	background:#233b75;
+	z-index: 1000;
+}
+ 
+.menu_bar {
+	display:none;
+}
+ 
+header nav ul {
+	list-style:none;
+}
+ 
+header nav ul li {
+	display: inline-block;
+	position: relative; 
+}
+ 
+header nav ul li a {
+	color:#fff;
+	padding:20px;
+	display:block;
+	text-decoration:none;
+}
+ 
+header nav ul li span {
+	margin-right:10px;
+}
+ 
+header nav ul li a:hover {
+	background:#233b75;
+	color: cyan;
+}
+		header nav ul li:hover .children{
+			display: block;
+			background: #233b75;
+		}
+		header nav ul li .children{
+			display: none;
+			position: absolute;
+			background:#233b75;
+			z-index: 1000; 
+		}
+		header nav ul li .children li{
+			display: block;
+			border-bottom: 1px solid rgba(225,225,225,.5);
+		}
+		header nav ul li .children li a{
+			display: block;
+		}
+ 
+section {
+	padding:20px;
+}
+ 
+@media screen and (max-width:800px ) {
+	body{
+		padding-top: 80px;
+		text-align: left;
+	}
+	.menu_bar {
+		display:block;
+		width:100%;
+		position: fixed;
+		top: 0;
+		text-align: left;
+		z-index: 1000;
+		background: #1F9617;
+		
+	}
+ 
+	.menu_bar .bt-menu {
+		display:block;
+		padding:20px;
+		color:#fff;
+		overflow: hidden;
+		text-decoration:none;
+		font-weight: bold;
+		font-size:25px;
+		-webkit-box-sizing:border-box;
+		-moz-box-sizing:border-box;
+		box-sizing:border-box;
+	}
+ 
+	.menu_bar span {
+		float:right;
+		font-size:40px;
+	}
+	header nav {
+		width:80%;
+		right: 100%;
+		margin:0;
+		height: calc(100% - 80px);
+		position: fixed;
+		overflow: scroll;
+	}
+ 
+	header nav ul li {
+		display:block;
+		border-bottom:1px solid rgba(255,255,255, .5);
+		text-align: left;
+	}
+	header nav ul li a {
+		display: block;
+	}
+	
+	header nav ul li:hover .children{		
+		display: none;
+	}
+	header nav ul li .children{
+		width: 100%;
+		position: relative;
+	}
+	header nav ul li .children li a{
+		margin-left: 20px;
+		
+	}
+	
+}
+		table.bi{
+			width: 100%;
+		}
+		td.bi{
+			width: 35%;
+			text-align: center;
+			top-margin: 25px;
+		}
+		td.div{
+			width: 10%;
+			text-align: center;
+			top-margin: 25px;
+		}
+		h1{
+			text-align: center;
+			color: #233b75;
+		}
+		h2{
+			text-align: left;
+			color: #233b75;
+			margin-left: 25px;
+		}
+		p{
+			text-align: justify;
+			margin: 25px;
+		}
+		h3.button4{
+			background: #233b75;
+			color: white;
+			margin-top: 20px;
+			text-align: center;
+			width: 150px;
+			height: 30px;
+		}
+		td.vi{
+			width: 35%;
+			text-align: left;
+		}
+		table.f{
+			width: auto;
+			margin: 25px;
+		}
+		td.f{
+			width: auto;
+		}
+		input{
+			align-content: flex-start;
+		}
+		input[type="number"]{
+			width: 40px;
+		}
+		input[type="text"]{
+			width: 200px;
+		}
+	</style>	
+</head>
+
+<body>
+	
+	<table>
+		<tbody>
+			<tr>
+				<td class="out"></td>
+				<td class="in"><center><a href="Iniciar sesion.html" ><h3 class="button">Iniciar sesión</h3></a></center></td>
+				<td class="in"><center><a href="Crear cuenta.html"><h3 class="button2">Crear cuenta</h3></a></center></td>
+			</tr>
+		</tbody>
+	</table>
+	
+		<header><center>
+		<div class="menu_bar">
+			<a href="#" class="bt-menu"><span class="icon-menu"></span>Menu</a>
+		</div>
+ 
+		<nav>
+			<ul>
+				<li><a href="#" class="sub"><span class="icon-house"></span>Medicamentos</a></li>
+				<li><a href="#" class="sub"><span class="icon-suitcase"></span>Cuidado de la Salud</a></li>
+				<li class="submenu">
+					<a href="#" class="sub"><span class="icon-rocket"></span>Bebes<span class="caret"></span></a>
+					<ul class="children">
+						<li><a href="#" class="sub">Sub #1</a></li>
+						<li><a href="#" class="sub">Sub #2</a></li>
+						<li><a href="#" class="sub">Sub #3</a></li>
+					</ul>
+				</li>
+				<li><a href="#" class="sub"><span class="icon-earth"></span>Cuidado Personal</a></li>
+				<li><a href="#" class="sub"><span class="icon-mail"></span>Salud Sexual</a></li>
+			</ul>
+		</nav>
+	</center></header> <br>
+	
+	<h1>Inicia sesión o crea tu cuenta y ¡Conoce nuestro catálogo de Farmacia!</h1><br>
+	<table class="bi">
+		<tbody>
+			<tr>
+				<td class="div"></td>
+				<td class="bi">
+					<p>Nombre(s):</p>
+					<input type="text" name="nombreuser" placeholder="" required/>
+					
+					<p>Apellido Materno:</p>
+					<input type="text" name="apellidosuser" placeholder="" required/>
+					
+					<p>Fecha de nacimiento:</p>
+					<center><table class="f">
+						<tbody>
+							<tr>
+								<td class="f"><input type="number" name="day" placeholder="DD" required/></td>
+								<td class="f"> / </td>
+								<td class="f"><input type="number" name="month" placeholder="MM" required/></td>
+								<td class="f"> / </td>
+								<td class="f"><input type="number" name="year" placeholder="AAAA" required/></td>
+							</tr>
+						</tbody>
+					</table></center>
+				</td>
+				<td class="div"></td>
+				<td class="bi">
+					<p>Apellido Paterno:</p>
+					<input type="text" name="apellidosuser" placeholder="" required/>
+					
+					<p>Correo Electrónico:</p>
+					<input type="text" name="emailuser" placeholder="example@mail.com" required/>
+					
+					<table>
+						<tbody>
+							<tr>
+								<td class="bi"><p>Contraseña:</p>
+								<input type="password" name="pass" placeholder="* * * *" required/>
+								</td>
+								
+								<td class="bi"><p>Confirma tu contraseña:</p>
+									<input type="password" name="rpass" placeholder="* * * *" required/>
+								</td>
+								
+							</tr>
+						</tbody>
+					</table>
+				</td>
+				<td class="div"></td>
+			</tr>
+			<tr>
+				<td class="div"></td>
+				<td class="vi">
+					<center><a href="" ><h3 class="button">Crear cuenta</h3></a></center>
+				</td>
+				<td class="div"></td>
+				<td class="vi">
+					<center><a href=""><h3 class="button2">Resetear</h3></a></center>
+				</td>
+				<td class="div"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Optica D Susan</title>
+	   <style type="text/css">
+	   * {
+	   	padding: 0px;
+	   	margin: 0px;
+	   }
+       #Subtitulos {
+       	margin: auto;
+       	width:100%;
+       	font-family: Arial, Helvetica, sans-serif;
+       }
+       ul, ol {
+	   	list-style: none;
+	   }
+	   .navi li a {
+	   	background-color: #000;
+	   	color: #fff;
+	   	font-family: Georgia, serif;
+	   	text-decoration: none;
+	   	padding: 5px 40px;
+	   	display: block;
+	   	}
+	   	.navi li a:hover {
+	   		background-color: #434343;
+	   	}
+	   	.navi > li {
+	   	float: left;
+	   } 
+	   .navi li ul {
+	   	display: none;
+	   	position: absolute;
+	   	min-width: 200px;
+	   }
+	   .navi li:hover > ul {
+	   	display: block;
+	   }
+	   .navi li ul li {
+	   	position: relative;
+	   }
+	   .navi li ul li ul {
+	   	right: -200px;
+	   	top: 0px;
+	   }
+	   body {
+	   	font-family: georgia, times, serif;
+	   	color: #000000;
+	   	font-size: 1.2rem;
+	   	line-height: 1.4em;
+	   	margin: 0;
+	   }
+	   table{
+	   	width: 100%;
+	   	border: none;
+	   	border-color: #000000;
+	   	background: #000000;
+	   }
+	   table.s{
+	   	background: lightblue;
+	   	height: 20px;
+	   	width: 100%;
+	   }
+	  td.d{
+	  	width: 65%;
+
+	  }
+	  td.i{
+	  	align-content: center;
+	  	align-items: center;
+	  }
+	  td.o{
+	  	width: 30%;
+	  }
+	   h1{
+	   	line-height: 1.5em;
+	   	letter-spacing: 5px;
+	   	font-size: 1.5em;
+	   }
+	   p{
+	   	margin-bottom: 1.6rem;
+	   }
+	   input[type=search] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    height: 40px;
+    width: 250px;
+    background: white;
+    color: black;
+}
+	   .header{
+	   	 background: #000000;
+	   	 color: white;
+	   	 padding: 1rem 0;
+	   }
+	   .header a {
+	   	 color: white; 
+	   	 font-family: arial, serif; 
+	   	 text-decoration: none;
+	   }
+	   .logo-nav-container {
+	   	display: flex;
+	   	justify-content: space-between;
+	   	align-items: center;
+	   }
+	    .navigation ul {
+	   	margin: 0;
+	   	padding: 0;
+	   	list-style: none;
+	   }
+	   	.navigation ul li {
+	   		display: inline-block;
+	   	}
+	   	.navigation ul li a{
+	   			display: block;
+	   			padding: 0.5rem 1rem;
+	   			transition: all 0.4s linear;
+	   			border-radius: 5px;
+	   		}	
+	   		.navigation ul li a:hover {
+	   				background: lightblue;
+	   			}
+	   		.footer {
+	   			background: #000000;
+	   			padding: 4rem 0;
+	   			text-align: center;
+	   			margin-top: 6rem;
+	   			color: white;
+	   		}
+		   .otra{
+   		display: flex;
+    	align-items: center;
+    	justify-content: center;
+	}
+
+	.slide img{
+    	max-width: 100%;
+	}
+
+	.container-all{
+   		margin-bottom: 40px;
+    	position: relative;
+    	max-width: 1000px;
+    	width: 100%;
+    	border-radius: 6px;
+    	overflow: hidden;
+	}
+
+	.slide{
+    	display: flex;
+    	transform: translate3d(0, 0, 0);
+    	transition: all 600ms;
+    	animation-name: autoplay;
+    	animation-duration: 6.5s;
+    	animation-direction: alternate;
+    	animation-fill-mode: forwards;
+    	animation-iteration-count: infinite;
+	}
+
+	.item-slide{
+    	position: relative;
+    	display: flex;
+    	flex-direction: column;
+    	flex-shrink: 0;
+    	flex-grow: 0;
+    	max-width: 100%;
+	}	
+
+	.pagination{
+    	position: absolute;
+    	bottom: 20px;
+   		left: 0;
+    	display: flex;
+    	flex-wrap: wrap;
+    	align-items: center;
+    	justify-content: center;
+    	width: 100%;
+	}
+
+	.pagination-item{
+  		display: flex;
+  		flex-direction: column;
+   		align-items: center;
+    	border: 2px solid white;
+    	width: 16px;
+    	height: 16px;
+    	border-radius: 4px;
+    	overflow: hidden;
+    	cursor: pointer;
+    	background: rgba(255, 255, 255, 0.5);
+    	margin: 0 10px;
+    	text-align: center;
+    	transition: all 300ms;
+	}
+
+	.pagination-item:hover{
+    	transform: scale(2);
+	}
+
+	.pagination-item img{
+    	display: inline-block;
+    	max-width: none;
+    	height: 100%;
+    	transform: scale(1);
+    	opacity: 0;
+    	transition: all 300ms;
+	}
+
+	.pagination-item:hover img{
+    	opacity: 1;
+    	transform: scale(1);
+	}
+
+
+	input[id="1"]:checked ~ .slide{
+    	animation: none;
+    	transform: translate3d(0, 0, 0);
+	}
+
+	input[id="1"]:checked ~ .pagination .pagination-item[for="1"]{
+    	background: #fff;
+	}
+
+	input[id="2"]:checked ~ .slide{
+    	animation: none;
+    	transform: translate3d(calc(-100% * 1), 0, 0);
+	}
+
+	input[id="2"]:checked ~ .pagination .pagination-item[for="2"]{
+    	background: #fff;
+	}
+
+
+	input[id="3"]:checked ~ .slide{
+    	animation: none;
+    	transform: translate3d(calc(-100% * 2), 0, 0);
+	}
+
+	input[id="3"]:checked ~ .pagination .pagination-item[for="3"]{
+    	background: #fff;
+	}
+
+
+	@keyframes autoplay{
+    	33%{
+        	transform: translate3d(calc(-100% * 0), 0, 0);
+    	}
+    
+    	66%{
+        	transform: translate3d(calc(-100% * 1), 0, 0);
+    	}
+    
+    	100%{
+    	    transform: translate3d(calc(-100% * 2), 0, 0);
+    	}
+	</style>
+</head>
+<body>
+	
+	<table>
+		<tbody>
+			<tr>
+				<td class="d">
+					<header class="header">
+						<div class="container logo-nav-container">
+							<nav class="navigation">
+								<ul>
+ 									<li><a href="../../../../Marie/Documents/Html/Proyecto Optica/Inicio.html">Inicio</a></li>
+ 									<li><a href="#">Factura</a></li>
+ 									<li><a href="#">Promociones</a></li>
+ 								</ul>
+							</nav>	
+						</div>
+					</header>
+				</td>
+				<td>
+					<header class="header"><div class="container logo-nav-container"><nav class="navigation"><center>
+					<input width="35" height="35" type = "search" placeholder = "B&uacute;squeda de toda la tienda" />
+					</center></nav></div></header>
+				</td>
+				<td class="i">
+					<header class="header"><div class="container logo-nav-container"><nav class="navigation"><center>
+					<img src="1486564400-account_81513.png" width="35" height="35" >
+ 					</center></nav></div></header>
+				</td>
+				<td class="i">
+					<header class="header"><div class="container logo-nav-container"><nav class="navigation"><center>
+					<img src="carro-icono.png" width="35" height="35">
+					</center></nav></div></header>
+				</td>
+		</tbody>
+	</table>
+
+	
+		<table class="s">
+			<tbody>
+				<tr>
+					<td class="o">
+						<h1>Optica D Susan</h1>
+					</td>
+					<td class="s">
+						<div id="Subtitulos">
+ 			<ul class="navi"> 
+ 				<li><a href="">Lentes oftalmicos</a>
+ 					<ul>
+ 						<li><a href="">Genero</a>
+ 							<ul>
+ 								<li><a href="">Hombres</a></li>
+ 								<li><a href="">Mujeres</a></li>
+ 								<li><a href="">Niños</a></li>
+ 							</ul>
+ 						</li>
+ 						<li><a href="">Estilo</a>
+ 							<ul>
+ 								<li><a href="">Clasico</a></li>
+ 								<li><a href="">Urbano</a></li>
+ 								<li><a href="">Hipster</a></li>
+ 							</ul>
+ 						</li>
+ 						<li><a href="">Marcas</a>
+ 							<ul>
+ 								<li><a href="">Ray Ban</a></li>
+ 								<li><a href="">DKNY</a></li>
+ 								<li><a href="">Vogue</a></li>
+ 							</ul>
+ 						</li>
+ 						<li><a href="">Mica</a></li>
+ 					</ul>
+ 				</li>
+ 				<li><a href="">Lentes solares</a>
+ 					<ul>
+ 						<li><a href="">Genero</a>
+ 							<ul>
+ 								<li><a href="">Hombres</a></li>
+ 								<li><a href="">Mujeres</a></li>
+ 								<li><a href="">Niños</a></li>
+ 							</ul>
+ 						</li>
+ 						<li><a href="">Marca</a>
+ 							<ul>
+ 								<li><a href="">DKNY</a></li>
+ 								<li><a href="">Vogue</a></li>
+ 								<li><a href="">Ray Ban</a></li>
+ 							</ul>
+ 						</li>
+ 						<li><a href="">Estilo</a>
+ 							<ul>
+ 								<li><a href="">Trendy</a></li>
+ 								<li><a href="">Urbano</a></li>
+ 								<li><a href="">Clasico</a></li>
+ 							</ul>
+ 						</li>
+ 						<li><a href="">Forma</a>
+ 							<ul>
+ 								<li><a href="">Cuadrado</a></li>
+ 								<li><a href="">Redondo</a></li>
+ 								<li><a href="">Piloto</a></li>
+ 							</ul>
+ 						</li>
+ 					</ul>
+ 				</li>
+ 				<li><a href="">Lentes de contacto</a>
+ 					<ul>
+ 						<li><a href="">Marca</a>
+ 							<ul>
+ 								<li><a href="">Frecuent</a></li>
+ 								<li><a href="">Trikolor</a></li>
+ 								<li><a href="">Air optix</a></li>
+ 							</ul>
+ 						</li>
+ 						<li><a href="">Necesidad</a>
+ 							<ul>
+ 								<li><a href="">Astigmatismo</a></li>
+ 								<li><a href="">Miopia</a></li>
+ 								<li><a href="">Hipermetropia</a></li>
+ 							</ul>
+ 						</li>
+ 						<li><a href="">Tipo</a>
+ 							<ul>
+ 								<li><a href="">Cosmeticos</a></li>
+ 								<li><a href="">Graduados</a></li>
+ 							</ul>
+ 						</li>
+ 					</ul>
+ 				</li>
+ 				<li><a href="">Accesorios</a></li>
+ 			</ul>
+ 		</div>	
+				</td>
+				</tr>
+			</tbody>
+		</table><br><br><br><br><br><br><br>
+		<div align="center">
+    </div>
+	<div class="otra">
+		<div class="container-all">
+			<input type="radio" id="1" name="image-slide" hidden/>
+			<input type="radio" id="2" name="image-slide" hidden/>
+			<input type="radio" id="3" name="image-slide" hidden/>
+			<div class="slide">
+				<div class="item-slide">
+					<img src="1.png">
+				</div>
+				<div class="item-slide">
+					<img src="2.png">
+				</div>
+				<div class="item-slide">
+					<img src="3.png">
+				</div>
+			</div>
+			<div class="pagination">
+				<label class="pagination-item" for="1">
+					<img src="1.png">
+				</label>
+				<label class="pagination-item" for="2">
+					<img src="2.png">
+				</label>
+				<label class="pagination-item" for="3">
+					<img src="3.png">
+				</label>
+			</div>
+		</div>
+	</div>
+	
+			<p>jsbkjadjkabskjdbkajsbdjkbaskjbkjabsdkjabsdkjarjgdoifjgodnfgjdofgjdikfjgdkjfgkdfikjgkbksjdb.</p>
+ 	 <p>jsbkjadjkabskjdbkajsbdjkbaskjbkjabsdkjabsdkjarjgdoifjgodnfgjdofgjdikfjgdkjfgkdfikjgkbksjdb.</p>
+	 <p>jsbkjadjkabskjdbkajsbdjkbaskjbkjabsdkjabsdkjarjgdoifjgodnfgjdofgjdikfjgdkjfgkdfikjgkbksjdb.</p>
+	 <p>jsbkjadjkabskjdbkajsbdjkbaskjbkjabsdkjabsdkjarjgdoifjgodnfgjdofgjdikfjgdkjfgkdfikjgkbksjdb.</p>
+	 <p>jsbkjadjkabskjdbkajsbdjkbaskjbkjabsdkjabsdkjarjgdoifjgodnfgjdofgjdikfjgdkjfgkdfikjgkbksjdb.</p>
+	 <p>jsbkjadjkabskjdbkajsbdjkbaskjbkjabsdkjabsdkjarjgdoifjgodnfgjdofgjdikfjgdkjfgkdfikjgkbksjdb.</p>
+	 <p>jsbkjadjkabskjdbkajsbdjkbaskjbkjabsdkjabsdkjarjgdoifjgodnfgjdofgjdikfjgdkjfgkdfikjgkbksjdb.</p>
+	 <p>jsbkjadjkabskjdbkajsbdjkbaskjbkjabsdkjabsdkjarjgdoifjgodnfgjdofgjdikfjgdkjfgkdfikjgkbksjdb.</p>
+	 <p>jsbkjadjkabskjdbkajsbdjkbaskjbkjabsdkjabsdkjarjgdoifjgodnfgjdofgjdikfjgdkjfgkdfikjgkbksjdb.</p>
+	 <p>jsbkjadjkabskjdbkajsbdjkbaskjbkjabsdkjabsdkjarjgdoifjgodnfgjdofgjdikfjgdkjfgkdfikjgkbksjdb.</p>
+
+	
+	<footer class="footer">
+		<div class="container">
+			<div align="center">
+        <a href="https://www.facebook.com/pages/Optica-D-Susan/205348463157463?ref=br_tf&epa=SEARCH_BOX">
+        	<img width="50" height="50" src="icono-de-facebook-logo-by-vexels.png">
+        </a>
+		</div>
+	</div>
+	<hr align="center" size="1"><br>	
+	<h4 align="center"><p>AYUDA</p></h4>
+    	<ul>
+    		<li><h5 align="center"><p>POLITICAS DE PRIVACIDAD</p></h5></li>
+ 			<li><h5 align="center"><p>T&Eacute;RMINOS Y CONDICIONES</p></h5></li>
+    	</ul>
+    	<hr align="center" size="1"><br>
+    	<h4 align="center"><p>ATENCI&Oacute;N A CLIENTES</p></h4>
+    	<h5 align="center"><p>Tel.323 4433/</p></h5>
+    	<table>
+    		<tbody>
+    			<tr>
+    				<td>
+    					Hola
+    				</td>
+    				<td>
+    					Xd
+    				</td>
+    			</tr>
+    	</table>
+</body>
+</html>

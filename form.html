@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<title>FormularioRegistro</title>
+</head>
+<body>
+	<div id="content">
+		<form  method="post" action="http://localhost/form/registro.php">
+			<h1>Formulario de prueba</h1>
+	        <label>Nombre</label>
+		    	<input type="text" name="nombreuser" placeholder="" required/>
+				
+
+				<label>Apellidos</label>
+				<input type="text" name="apellidosuser" placeholder="Apellidos" required/>
+			   
+
+				<label>Correo electronico</label>
+				<input type="text" name="emailuser" placeholder="example@mail.com" required/>
+				
+
+				<label>Contrase&ntilde;a</label>
+				<input type="password" name="pass" placeholder="* * * *" required/>
+				
+
+				<label>Repetir Contrase&ntilde;a</label>
+				<input type="password" name="rpass" placeholder="* * * *" required/>
+				
+
+				<label id="a"><input type="submit" value="Registrarme"></input></label>
+		        <label><input type="reset" value="Reestablecer"></input></label>
+		</form>
+	</div>
+</body>
+</html>

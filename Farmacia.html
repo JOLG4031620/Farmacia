@@ -1,0 +1,264 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Famacia Jaen</title>
+<style type="text/css">
+	*{
+    	margin: 0;
+    	padding: 0;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		transition-property: body;
+		transition-duration: .20s;
+		transition-delay: .6s;
+	}
+	
+	b:hover{;
+			color: #45b4e8;
+
+	}
+	
+	header{
+		width: 100%;
+		float: none;
+	}
+
+		.navegacion{
+			width: auto;
+			margin: auto;
+			background: #233b75;
+			position: relative;
+		}		
+
+		.navegacion ul{
+			list-style: none;
+		}
+
+		.menu > li{
+			position: relative;
+			display: inline-block;
+			padding: auto auto;
+		}
+
+		.menu > li > a{
+			display:inline-block;
+			padding: 15px 20px;
+			color: white;
+			text-decoration: none;
+			padding: auto auto;
+			position: relative;
+		}
+
+		.menu li a:hover{
+			background: #343434;
+			color: white; 
+			position: relative;
+		}
+
+		.submenu{
+			position: absolute;
+			background: #343434;
+			width: 100%;
+			visibility: hidden;
+			opacity: 0;
+			transition: opacity 1.5s;
+		}
+		.submenu li a:hover{
+			background: #5a3921;
+			color: white;
+		}
+		.submenu li a{
+			display: block;
+			padding: 15px;
+			color: white;
+			text-decoration: none;
+			background: #233b75;
+		}
+
+		.menu li:hover .submenu{
+			visibility: visible;
+			opacity: 1;
+		}
+
+	.otra{
+   		display: flex;
+    	align-items: center;
+    	justify-content: center;
+	}
+
+	.slide img{
+    	max-width: 100%;
+	}
+
+	.container-all{
+   		margin-bottom: 40px;
+    	position: relative;
+    	max-width: 1000px;
+    	width: 100%;
+    	border-radius: 6px;
+    	overflow: hidden;
+	}
+
+	.slide{
+    	display: flex;
+    	transform: translate3d(0, 0, 0);
+    	transition: all 600ms;
+    	animation-name: autoplay;
+    	animation-duration: 6.5s;
+    	animation-direction: alternate;
+    	animation-fill-mode: forwards;
+    	animation-iteration-count: infinite;
+	}
+
+	.item-slide{
+    	position: relative;
+    	display: flex;
+    	flex-direction: column;
+    	flex-shrink: 0;
+    	flex-grow: 0;
+    	max-width: 100%;
+	}	
+
+	.pagination{
+    	position: absolute;
+    	bottom: 20px;
+   		left: 0;
+    	display: flex;
+    	flex-wrap: wrap;
+    	align-items: center;
+    	justify-content: center;
+    	width: 100%;
+	}
+
+	.pagination-item{
+  		display: flex;
+  		flex-direction: column;
+   		align-items: center;
+    	border: 2px solid white;
+    	width: 16px;
+    	height: 16px;
+    	border-radius: 4px;
+    	overflow: hidden;
+    	cursor: pointer;
+    	background: rgba(255, 255, 255, 0.5);
+    	margin: 0 10px;
+    	text-align: center;
+    	transition: all 300ms;
+	}
+
+	.pagination-item:hover{
+    	transform: scale(2);
+	}
+
+	.pagination-item img{
+    	display: inline-block;
+    	max-width: none;
+    	height: 100%;
+    	transform: scale(1);
+    	opacity: 0;
+    	transition: all 300ms;
+	}
+
+	.pagination-item:hover img{
+    	opacity: 1;
+    	transform: scale(1);
+	}
+
+
+	input[id="1"]:checked ~ .slide{
+    	animation: none;
+    	transform: translate3d(0, 0, 0);
+	}
+
+	input[id="1"]:checked ~ .pagination .pagination-item[for="1"]{
+    	background: #fff;
+	}
+
+	input[id="2"]:checked ~ .slide{
+    	animation: none;
+    	transform: translate3d(calc(-100% * 1), 0, 0);
+	}
+
+	input[id="2"]:checked ~ .pagination .pagination-item[for="2"]{
+    	background: #fff;
+	}
+
+
+	input[id="3"]:checked ~ .slide{
+    	animation: none;
+    	transform: translate3d(calc(-100% * 2), 0, 0);
+	}
+
+	input[id="3"]:checked ~ .pagination .pagination-item[for="3"]{
+    	background: #fff;
+	}
+
+
+	@keyframes autoplay{
+    	33%{
+        	transform: translate3d(calc(-100% * 0), 0, 0);
+    	}
+    
+    	66%{
+        	transform: translate3d(calc(-100% * 1), 0, 0);
+    	}
+    
+    	100%{
+    	    transform: translate3d(calc(-100% * 2), 0, 0);
+    	}
+</style>
+</head>
+
+<body>
+	<center><header>
+		<nav class="navegacion">
+		<ul class="menu">
+		<li><a href=""><b>Medicamentos</b></a></li>
+		<li><a href=""><b>Cuidao de la Salud</b></a>
+			<ul class="submenu">
+				<li><a href=""><b>Energía Eólica</b></a></li>
+				<li><a href=""><b>Energía Hidroeléctrica</b></a></li>
+				<li><a href=""><b>Energía Solar</b></a></li>
+				<li><a href=""><b>Energía Geotérmica</b></a></li>
+				<li><a href=""><b>Energía Maremotriz</b></a></li>
+				<li><a href=""><b>Biomasa</b></a></li>
+			</ul>
+		</li>
+		<li><a href=""><b>Cuidado Personal</b></a></li>
+		<li><a href=""><b>Salu Sexual</b></a></li>
+		</ul>
+		</nav>
+	</header></center><br><br>
+	<div class="otra">
+		<div class="container-all">
+			<input type="radio" id="1" name="image-slide" hidden/>
+			<input type="radio" id="2" name="image-slide" hidden/>
+			<input type="radio" id="3" name="image-slide" hidden/>
+			<div class="slide">
+				<div class="item-slide">
+					<img src="1.png">
+				</div>
+				<div class="item-slide">
+					<img src="2.png">
+				</div>
+				<div class="item-slide">
+					<img src="3.png">
+				</div>
+			</div>
+			<div class="pagination">
+				<label class="pagination-item" for="1">
+					<img src="1.png">
+				</label>
+				<label class="pagination-item" for="2">
+					<img src="2.png">
+				</label>
+				<label class="pagination-item" for="3">
+					<img src="3.png">
+				</label>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
