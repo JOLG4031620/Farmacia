@@ -1,0 +1,367 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" charset="utf-8">
+<title>Documento sin título</title>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="java.js"></script>
+	<link rel="stylesheet" href="style.css">
+	<style type="text/css">
+	* {
+	margin:0;
+	padding:0;
+}
+		table{
+			width: 100%;
+		}
+		td.in{
+			width: 15%;
+		}
+		td.out{
+			width: 70%;
+		}
+		a{
+			text-decoration: none;
+		}
+		h3.button{
+			background: #233b75;
+			color: white;
+			margin-top: 20px;
+			text-align: center;
+			width: 150px;
+			height: 30px;
+		}
+		h3.button2{
+			background: #d9172e;
+			color: white;
+			margin-top: 20px;
+			text-align: center;
+			width: 150px;
+			height: 30px;
+		}
+ 
+header {
+	width:100%;
+}
+		a.sub{
+			font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+			font-size: 20px;
+		}
+ 
+header nav {
+	width:100%;
+	margin:20px auto;
+	background:#233b75;
+	z-index: 1000;
+}
+ 
+.menu_bar {
+	display:none;
+}
+ 
+header nav ul {
+	list-style:none;
+}
+ 
+header nav ul li {
+	display: inline-block;
+	position: relative; 
+}
+ 
+header nav ul li a {
+	color:#fff;
+	padding:20px;
+	display:block;
+	text-decoration:none;
+}
+ 
+header nav ul li span {
+	margin-right:10px;
+}
+ 
+header nav ul li a:hover {
+	background:#233b75;
+	color: cyan;
+}
+		header nav ul li:hover .children{
+			display: block;
+			background: #233b75;
+		}
+		header nav ul li .children{
+			display: none;
+			position: absolute;
+			background:#233b75;
+			z-index: 1000; 
+		}
+		header nav ul li .children li{
+			display: block;
+			border-bottom: 1px solid rgba(225,225,225,.5);
+		}
+		header nav ul li .children li a{
+			display: block;
+		}
+ 
+section {
+	padding:20px;
+}
+ 
+@media screen and (max-width:800px ) {
+	body{
+		padding-top: 80px;
+		text-align: left;
+	}
+	.menu_bar {
+		display:block;
+		width:100%;
+		position: fixed;
+		top: 0;
+		text-align: left;
+		z-index: 1000;
+		background: #1F9617;
+		
+	}
+ 
+	.menu_bar .bt-menu {
+		display:block;
+		padding:20px;
+		color:#fff;
+		overflow: hidden;
+		text-decoration:none;
+		font-weight: bold;
+		font-size:25px;
+		-webkit-box-sizing:border-box;
+		-moz-box-sizing:border-box;
+		box-sizing:border-box;
+	}
+ 
+	.menu_bar span {
+		float:right;
+		font-size:40px;
+	}
+	header nav {
+		width:80%;
+		right: 100%;
+		margin:0;
+		height: calc(100% - 80px);
+		position: fixed;
+		overflow: scroll;
+	}
+ 
+	header nav ul li {
+		display:block;
+		border-bottom:1px solid rgba(255,255,255, .5);
+		text-align: left;
+	}
+	header nav ul li a {
+		display: block;
+	}
+	
+	header nav ul li:hover .children{		
+		display: none;
+	}
+	header nav ul li .children{
+		width: 100%;
+		position: relative;
+	}
+	header nav ul li .children li a{
+		margin-left: 20px;
+		
+	}
+	
+}
+		.otra{
+   		display: flex;
+    	align-items: center;
+    	justify-content: center;
+	}
+
+	.slide img{
+    	max-width: 900%;
+	}
+
+	.container-all{
+   		margin-bottom: 40px;
+    	position: relative;
+    	max-width: 90%;
+    	width: 100%;
+    	border-radius: 6px;
+    	overflow: hidden;
+	}
+
+	.slide{
+    	display: flex;
+    	transform: translate3d(0, 0, 0);
+    	transition: all 600ms;
+    	animation-name: autoplay;
+    	animation-duration: 6.5s;
+    	animation-direction: alternate;
+    	animation-fill-mode: forwards;
+    	animation-iteration-count: infinite;
+	}
+
+	.item-slide{
+    	position: relative;
+    	display: flex;
+    	flex-direction: column;
+    	flex-shrink: 0;
+    	flex-grow: 0;
+    	max-width: 100%;
+	}	
+
+	.pagination{
+    	position: absolute;
+    	bottom: 20px;
+   		left: 0;
+    	display: flex;
+    	flex-wrap: wrap;
+    	align-items: center;
+    	justify-content: center;
+    	width: 100%;
+	}
+
+	.pagination-item{
+  		display: flex;
+  		flex-direction: column;
+   		align-items: center;
+    	border: 2px solid white;
+    	width: 16px;
+    	height: 16px;
+    	border-radius: 4px;
+    	overflow: hidden;
+    	cursor: pointer;
+    	background: rgba(255, 255, 255, 0.5);
+    	margin: 0 10px;
+    	text-align: center;
+    	transition: all 300ms;
+	}
+
+	.pagination-item:hover{
+    	transform: scale(2);
+	}
+
+	.pagination-item img{
+    	display: inline-block;
+    	max-width: none;
+    	height: 100%;
+    	transform: scale(1);
+    	opacity: 0;
+    	transition: all 300ms;
+	}
+
+	.pagination-item:hover img{
+    	opacity: 1;
+    	transform: scale(1);
+	}
+
+
+	input[id="1"]:checked ~ .slide{
+    	animation: none;
+    	transform: translate3d(0, 0, 0);
+	}
+
+	input[id="1"]:checked ~ .pagination .pagination-item[for="1"]{
+    	background: #fff;
+	}
+
+	input[id="2"]:checked ~ .slide{
+    	animation: none;
+    	transform: translate3d(calc(-100% * 1), 0, 0);
+	}
+
+	input[id="2"]:checked ~ .pagination .pagination-item[for="2"]{
+    	background: #fff;
+	}
+
+
+	input[id="3"]:checked ~ .slide{
+    	animation: none;
+    	transform: translate3d(calc(-100% * 2), 0, 0);
+	}
+
+	input[id="3"]:checked ~ .pagination .pagination-item[for="3"]{
+    	background: #fff;
+	}
+
+
+	@keyframes autoplay{
+    	33%{
+        	transform: translate3d(calc(-100% * 0), 0, 0);
+    	}
+    
+    	66%{
+        	transform: translate3d(calc(-100% * 1), 0, 0);
+    	}
+    
+    	100%{
+    	    transform: translate3d(calc(-100% * 2), 0, 0);
+    	}
+		
+	</style>	
+</head>
+
+<body>
+	
+	<table>
+		<tbody>
+			<tr>
+				<td class="out"></td>
+				<td class="in"><center><a href="Iniciar sesion.html" ><h3 class="button">Iniciar sesión</h3></a></center></td>
+				<td class="in"><center><a href="Crear cuenta.html"><h3 class="button2">Crear cuenta</h3></a></center></td>
+			</tr>
+		</tbody>
+	</table>
+	
+		<header><center>
+		<div class="menu_bar">
+			<a href="#" class="bt-menu"><span class="icon-menu"></span>Menu</a>
+		</div>
+ 
+		<nav>
+			<ul>
+				<li><a href="#" class="sub"><span class="icon-house"></span>Medicamentos</a></li>
+				<li><a href="#" class="sub"><span class="icon-suitcase"></span>Cuidado de la Salud</a></li>
+				<li class="submenu">
+					<a href="#" class="sub"><span class="icon-rocket"></span>Bebes<span class="caret"></span></a>
+					<ul class="children">
+						<li><a href="#" class="sub">Sub #1</a></li>
+						<li><a href="#" class="sub">Sub #2</a></li>
+						<li><a href="#" class="sub">Sub #3</a></li>
+					</ul>
+				</li>
+				<li><a href="#" class="sub"><span class="icon-earth"></span>Cuidado Personal</a></li>
+				<li><a href="#" class="sub"><span class="icon-mail"></span>Salud Sexual</a></li>
+			</ul>
+		</nav>
+	</center></header> <br><br>
+	
+	<div class="otra">
+		<div class="container-all">
+			<input type="radio" id="1" name="image-slide" hidden/>
+			<input type="radio" id="2" name="image-slide" hidden/>
+			<input type="radio" id="3" name="image-slide" hidden/>
+			<div class="slide">
+				<div class="item-slide">
+					<img src="1.png">
+				</div>
+				<div class="item-slide">
+					<img src="2.png">
+				</div>
+				<div class="item-slide">
+					<img src="3.png">
+				</div>
+			</div>
+			<div class="pagination">
+				<label class="pagination-item" for="1">
+					<img src="1.png">
+				</label>
+				<label class="pagination-item" for="2">
+					<img src="2.png">
+				</label>
+				<label class="pagination-item" for="3">
+					<img src="3.png">
+				</label>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
