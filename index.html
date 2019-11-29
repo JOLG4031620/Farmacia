@@ -1,367 +1,733 @@
 <!doctype html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" charset="utf-8">
-<title>Documento sin título</title>
-	<script src="http://code.jquery.com/jquery-latest.js"></script>
-	<script src="java.js"></script>
-	<link rel="stylesheet" href="style.css">
-	<style type="text/css">
-	* {
-	margin:0;
-	padding:0;
-}
-		table{
-			width: 100%;
-		}
-		td.in{
-			width: 15%;
-		}
-		td.out{
-			width: 70%;
-		}
-		a{
-			text-decoration: none;
-		}
-		h3.button{
-			background: #233b75;
-			color: white;
-			margin-top: 20px;
-			text-align: center;
-			width: 150px;
-			height: 30px;
-		}
-		h3.button2{
-			background: #d9172e;
-			color: white;
-			margin-top: 20px;
-			text-align: center;
-			width: 150px;
-			height: 30px;
-		}
- 
-header {
-	width:100%;
-}
-		a.sub{
-			font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
-			font-size: 20px;
-		}
- 
-header nav {
-	width:100%;
-	margin:20px auto;
-	background:#233b75;
-	z-index: 1000;
-}
- 
-.menu_bar {
-	display:none;
-}
- 
-header nav ul {
-	list-style:none;
-}
- 
-header nav ul li {
-	display: inline-block;
-	position: relative; 
-}
- 
-header nav ul li a {
-	color:#fff;
-	padding:20px;
-	display:block;
-	text-decoration:none;
-}
- 
-header nav ul li span {
-	margin-right:10px;
-}
- 
-header nav ul li a:hover {
-	background:#233b75;
-	color: cyan;
-}
-		header nav ul li:hover .children{
-			display: block;
-			background: #233b75;
-		}
-		header nav ul li .children{
-			display: none;
-			position: absolute;
-			background:#233b75;
-			z-index: 1000; 
-		}
-		header nav ul li .children li{
-			display: block;
-			border-bottom: 1px solid rgba(225,225,225,.5);
-		}
-		header nav ul li .children li a{
-			display: block;
-		}
- 
-section {
-	padding:20px;
-}
- 
-@media screen and (max-width:800px ) {
-	body{
-		padding-top: 80px;
-		text-align: left;
-	}
-	.menu_bar {
-		display:block;
-		width:100%;
-		position: fixed;
-		top: 0;
-		text-align: left;
-		z-index: 1000;
-		background: #1F9617;
-		
-	}
- 
-	.menu_bar .bt-menu {
-		display:block;
-		padding:20px;
-		color:#fff;
-		overflow: hidden;
-		text-decoration:none;
-		font-weight: bold;
-		font-size:25px;
-		-webkit-box-sizing:border-box;
-		-moz-box-sizing:border-box;
-		box-sizing:border-box;
-	}
- 
-	.menu_bar span {
-		float:right;
-		font-size:40px;
-	}
-	header nav {
-		width:80%;
-		right: 100%;
-		margin:0;
-		height: calc(100% - 80px);
-		position: fixed;
-		overflow: scroll;
-	}
- 
-	header nav ul li {
-		display:block;
-		border-bottom:1px solid rgba(255,255,255, .5);
-		text-align: left;
-	}
-	header nav ul li a {
-		display: block;
-	}
-	
-	header nav ul li:hover .children{		
-		display: none;
-	}
-	header nav ul li .children{
-		width: 100%;
-		position: relative;
-	}
-	header nav ul li .children li a{
-		margin-left: 20px;
-		
-	}
-	
-}
-		.otra{
-   		display: flex;
-    	align-items: center;
-    	justify-content: center;
-	}
-
-	.slide img{
-    	max-width: 900%;
-	}
-
-	.container-all{
-   		margin-bottom: 40px;
-    	position: relative;
-    	max-width: 90%;
-    	width: 100%;
-    	border-radius: 6px;
-    	overflow: hidden;
-	}
-
-	.slide{
-    	display: flex;
-    	transform: translate3d(0, 0, 0);
-    	transition: all 600ms;
-    	animation-name: autoplay;
-    	animation-duration: 6.5s;
-    	animation-direction: alternate;
-    	animation-fill-mode: forwards;
-    	animation-iteration-count: infinite;
-	}
-
-	.item-slide{
-    	position: relative;
-    	display: flex;
-    	flex-direction: column;
-    	flex-shrink: 0;
-    	flex-grow: 0;
-    	max-width: 100%;
-	}	
-
-	.pagination{
-    	position: absolute;
-    	bottom: 20px;
-   		left: 0;
-    	display: flex;
-    	flex-wrap: wrap;
-    	align-items: center;
-    	justify-content: center;
-    	width: 100%;
-	}
-
-	.pagination-item{
-  		display: flex;
-  		flex-direction: column;
-   		align-items: center;
-    	border: 2px solid white;
-    	width: 16px;
-    	height: 16px;
-    	border-radius: 4px;
-    	overflow: hidden;
-    	cursor: pointer;
-    	background: rgba(255, 255, 255, 0.5);
-    	margin: 0 10px;
-    	text-align: center;
-    	transition: all 300ms;
-	}
-
-	.pagination-item:hover{
-    	transform: scale(2);
-	}
-
-	.pagination-item img{
-    	display: inline-block;
-    	max-width: none;
-    	height: 100%;
-    	transform: scale(1);
-    	opacity: 0;
-    	transition: all 300ms;
-	}
-
-	.pagination-item:hover img{
-    	opacity: 1;
-    	transform: scale(1);
-	}
-
-
-	input[id="1"]:checked ~ .slide{
-    	animation: none;
-    	transform: translate3d(0, 0, 0);
-	}
-
-	input[id="1"]:checked ~ .pagination .pagination-item[for="1"]{
-    	background: #fff;
-	}
-
-	input[id="2"]:checked ~ .slide{
-    	animation: none;
-    	transform: translate3d(calc(-100% * 1), 0, 0);
-	}
-
-	input[id="2"]:checked ~ .pagination .pagination-item[for="2"]{
-    	background: #fff;
-	}
-
-
-	input[id="3"]:checked ~ .slide{
-    	animation: none;
-    	transform: translate3d(calc(-100% * 2), 0, 0);
-	}
-
-	input[id="3"]:checked ~ .pagination .pagination-item[for="3"]{
-    	background: #fff;
-	}
-
-
-	@keyframes autoplay{
-    	33%{
-        	transform: translate3d(calc(-100% * 0), 0, 0);
-    	}
-    
-    	66%{
-        	transform: translate3d(calc(-100% * 1), 0, 0);
-    	}
-    
-    	100%{
-    	    transform: translate3d(calc(-100% * 2), 0, 0);
-    	}
-		
-	</style>	
-</head>
-
-<body>
-	
-	<table>
-		<tbody>
-			<tr>
-				<td class="out"></td>
-				<td class="in"><center><a href="Iniciar sesion.html" ><h3 class="button">Iniciar sesión</h3></a></center></td>
-				<td class="in"><center><a href="Crear cuenta.html"><h3 class="button2">Crear cuenta</h3></a></center></td>
-			</tr>
-		</tbody>
-	</table>
-	
-		<header><center>
-		<div class="menu_bar">
-			<a href="#" class="bt-menu"><span class="icon-menu"></span>Menu</a>
-		</div>
- 
-		<nav>
-			<ul>
-				<li><a href="#" class="sub"><span class="icon-house"></span>Medicamentos</a></li>
-				<li><a href="#" class="sub"><span class="icon-suitcase"></span>Cuidado de la Salud</a></li>
-				<li class="submenu">
-					<a href="#" class="sub"><span class="icon-rocket"></span>Bebes<span class="caret"></span></a>
-					<ul class="children">
-						<li><a href="#" class="sub">Sub #1</a></li>
-						<li><a href="#" class="sub">Sub #2</a></li>
-						<li><a href="#" class="sub">Sub #3</a></li>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="img/favicon.png" type="image/png">
+        <title>Administra Sistemas Operativos</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="vendors/linericon/style.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+        <link rel="stylesheet" href="vendors/lightbox/simpleLightbox.css">
+        <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+        <link rel="stylesheet" href="vendors/animate-css/animate.css">
+        <link rel="stylesheet" href="vendors/flaticon/flaticon.css">
+        <!-- main css -->
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/responsive.css">
+    </head>
+    <body>
+        
+        <!--================Header Menu Area =================-->
+        <header class="header_area">
+            <div class="main_menu">
+            	<nav class="navbar navbar-expand-lg navbar-light">
+					<div class="container box_1620">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt=""></a>
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+							<ul class="nav navbar-nav menu_nav justify-content-center">
+								<li class="nav-item active"><a class="nav-link" href="index.html">Inicio</a></li>
+								<li class="nav-item submenu dropdown">
+									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Windows</a>
+									<ul class="dropdown-menu">
+										<li class="nav-item"><a class="nav-link" href="about-us.html">Acerca de</a> 
+										<li class="nav-item"><a class="nav-link" href="elements.html">¿Cómo instalar Windows?</a></li>
+									</ul>
+								<!--<li class="nav-item"><a class="nav-link" href="about-us.html">About</a></li> 
+								<li class="nav-item"><a class="nav-link" href="services.html">Services</a>-->
+								<li class="nav-item submenu dropdown">
+									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Linux</a>
+									<ul class="dropdown-menu">
+										<li class="nav-item"><a class="nav-link" href="price.html">Acerca de</a> 
+										<li class="nav-item"><a class="nav-link" href="elements.html">¿Cómo instalar Linux?</a></li>
+									</ul>
+								</li> 
+								<!--<li class="nav-item submenu dropdown">
+									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
+									<ul class="dropdown-menu">
+										<li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+										<li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a></li>
+									</ul>
+								</li> 
+								<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+							</ul>
+							<ul class="nav navbar-nav navbar-right">
+								<li class="nav-item"><a href="#" class="tickets_btn">Free Trial</a></li>
+							</ul>-->
+						</div> 
+					</div>
+            	</nav>
+            </div>
+        </header>
+        <!--================Header Menu Area =================-->
+        
+        <!--================Home Banner Area =================-->
+        <section class="home_banner_area">
+            <div class="banner_inner">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-5">
+							<div class="banner_content">
+								<h2>Lo básico sobre Sistemas Operativos y Redes de Trabajo</h2>
+								<p>En está página web aprenderas los conceptos e información básica que debes saber sobre los distintos sistemas operativos y sus funciones, así como sus características, ventajas y desventajas, entre otras cosas.</p>
+							<!--	<a class="banner_btn" href="#">Get Started</a>-->
+								<!--<a class="banner_btn2" href="#">Download</a>-->
+							</div>
+						</div>
+						<div class="col-lg-7">
+							<div class="home_left_img">
+								<img class="img-fluid" src="img/banner/home-left-1.png" alt="">
+							</div>
+						</div>
+					</div>
+				</div>
+            </div>
+        </section>
+        <!--================End Home Banner Area =================-->
+        
+        <!--================Work Area =================-->
+        <section class="work_area p_120">
+        	<div class="container">
+        		<div class="main_title">
+        			<h2>Conceptos básicos</h2>
+        			<p></p>
+        		</div>
+        		<div class="work_inner row">
+        			<div class="col-lg-4">
+        				<div class="work_item">
+        					<i class="lnr lnr-screen"></i>
+        					<a href="#"><h4>Hardware</h4></a>
+        					<p>Es la parte física de un ordenador o sistema informático. Está formado por los componentes eléctricos, eléctronicos y mecanicos.</p>
+        				</div>
+        			</div>
+        			<div class="col-lg-4">
+        				<div class="work_item">
+        					<i class="lnr lnr-code"></i>
+        					<a href=""><h4>Software</h4></a>
+        					<p>Representa toda la parte inmaterial o intangible que hace funcionar a un ordenador, para que realice una serie de tareas específicas.</p>
+        				</div>
+        			</div>
+        			<div class="col-lg-4">
+        				<div class="work_item">
+        					<i class="lnr lnr-laptop"></i>
+        					<a href="#"><h4>Sistema Operativo</h4></a>
+        					<p>Gestiona y administra el hardware del dispositivo eléctronico, así como la ejecución de otros programas.</p>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        </section>
+        <!--================End Work Area =================-->
+        
+        <!--================Made Life Area =================-->
+        <section class="made_life_area p_120">
+        	<div class="container">
+        		<div class="made_life_inner">
+					<ul class="nav nav-tabs" id="myTab" role="tablist">
+						<li class="nav-item">
+						<a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">software Comercial</a>
+						</li>
+						<li class="nav-item">
+						<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Software de Libre Distribución</a>
+						</li>
+						<li class="nav-item">
+						<a class="nav-link active" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Bios</a>
+						</li>
+						<li class="nav-item">
+						<a class="nav-link" id="edge-tab" data-toggle="tab" href="#edge" role="tab" aria-controls="edge" aria-selected="false">Sistemas de Archivos</a>
+						</li>
 					</ul>
-				</li>
-				<li><a href="#" class="sub"><span class="icon-earth"></span>Cuidado Personal</a></li>
-				<li><a href="#" class="sub"><span class="icon-mail"></span>Salud Sexual</a></li>
-			</ul>
-		</nav>
-	</center></header> <br><br>
-	
-	<div class="otra">
-		<div class="container-all">
-			<input type="radio" id="1" name="image-slide" hidden/>
-			<input type="radio" id="2" name="image-slide" hidden/>
-			<input type="radio" id="3" name="image-slide" hidden/>
-			<div class="slide">
-				<div class="item-slide">
-					<img src="1.png">
-				</div>
-				<div class="item-slide">
-					<img src="2.png">
-				</div>
-				<div class="item-slide">
-					<img src="3.png">
-				</div>
-			</div>
-			<div class="pagination">
-				<label class="pagination-item" for="1">
-					<img src="1.png">
-				</label>
-				<label class="pagination-item" for="2">
-					<img src="2.png">
-				</label>
-				<label class="pagination-item" for="3">
-					<img src="3.png">
-				</label>
-			</div>
-		</div>
-	</div>
-</body>
+					<div class="tab-content" id="myTabContent">
+						<div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
+							<div class="row made_life_text">
+								<div class="col-lg-6">
+									<div class="left_side_text">
+										<h3>¿Qué es?</h3>
+										<p>Se conoce como software comercial ó software propietario al tipo de software que tiene como fin una comercialización,es decir, una venta.</p><br>
+										<h6>Características del software comercial:</h6>
+										<ul>
+											<li>No permite modificar el código fuente.</li>
+											<li>debes pagar por usarlo, generalmente a través de una licencia.</li>
+											<li>No se puede distribuir sin el permiso del propietario original que lo creó.</li>
+											<li>Ofrece buen nivel de experiencia de usuario y usabilidad.</li>
+											<li>Ofrece respaldo oficial de la empresa que lo desarrollo.</li>
+										</ul>
+										
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="chart_img">
+										<img class="img-fluid" src="img/044-microsoft.png" alt="">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+							<div class="row made_life_text">
+								<div class="col-lg-6">
+									<div class="left_side_text">
+										<h3>¿Qué es?</h3>
+										<p>Es aquel software donde el usuario del programa tiene la libertad de copiarlo, modificarlo, redistribuirlo y distribuirlo para el beneficio de una comunidad.</p><br>
+										<h6>Características del software libre:</h6>
+										<ul>
+											<li>Libertad de ejecutar el programa sin importar el propósito que se tenga.</li>
+											<li>Libertad de acceso al código fuente.</li>
+											<li>Libertad de distribuir el programa, incluso copias de versiones modificadas.</li>
+											<li>Libertad de redistribuir el programa.</li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="chart_img">
+										<img class="img-fluid" src="img/img/linux.png" alt="">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane fade show active" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+							<div class="row made_life_text">
+								<div class="col-lg-6">
+									<div class="left_side_text">
+										<h3>¿Qué es?</h3>
+										<p>Es el firmware de la tarjeta madre que funciona por medio del PC y se encarga de almacenar información esencial para que el equipo pueda arrancar correctamente, la BIOS se ejecuta al momento en que se enciende la PC, esta se encarga de revisar de que los perifericos esten operando correctamente.</p><br>
+										<h6>Funciones de la BIOS:</h6>
+										<ul>
+											<li>Ver y modifiacr la hora de sistema.</li>
+											<li>Ver la temperatura del procesador.</li>
+											<li>Modificar el voltaje y el consumo del procesador.</li>
+											<li>Modificar le frecuencia de la memoria RAM.</li>
+											<li>Cambiar la configuración de arranque.</li>
+											<li>Otras.</li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="chart_img">
+										<img class="img-fluid" src="img/chart.jpg" alt="">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="edge" role="tabpanel" aria-labelledby="edge-tab">
+							<div class="row made_life_text">
+								<div class="col-lg-6">
+									<div class="left_side_text">
+										<h3>¿Qué es?</h3>
+										<p>Es un método para el almacenamiento y organización de archivos de computadora y los datos que estos contienen, para hacer más fácil la tarea de encontrarlos y acceder a ellos.</p><br>
+										<h6>Tipos de sistemas de archivos más comunes:</h6>
+										<ul>
+											<li>Fat32</li>
+											<li>NTFS</li>
+											<li>HFS+</li>
+											<li>EXT2/EXT3/EXT4</li>
+											<li>Brtfs</li>
+											<li>Swap</li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="chart_img">
+										<img class="img-fluid" src="img/chart.jpg" alt="">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+        		</div>
+        	</div>
+        </section>
+		<!--================End Made Life Area =================-->
+		
+		<section class="testimonials_area p_120">
+        	<div class="container">
+        		<div class="main_title">
+        			<h2>Redes de Trabajo</h2>
+        			<p>Para conocer más sobre las redes de trabajo que existen debemos comprender algunos concetos clave.</p>
+        		</div>
+        		<div class="testi_slider owl-carousel">
+        			<div class="item">
+        				<div class="testi_item">
+							<div class="media">
+								<div class="d-flex">
+									<img src="img/testimonials/testi-1.png" alt="">
+								</div>
+								<div class="media-body">
+										<h4>Red</h4>
+									<p>Es un sistema de comnicación que se da entre distintos equipos para poder realizar una comunicación eficiente, rapida y precisa, para la transmisión de datos de un ordenador a otro.</p>
+									
+									<div class="rating">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star-half-o"></i>
+									</div>
+								</div>
+							</div>
+        				</div>
+        			</div>
+        			<div class="item">
+        				<div class="testi_item">
+							<div class="media">
+								<div class="d-flex">
+									<img src="img/testimonials/testi-2.png" alt="">
+								</div>
+								<div class="media-body">
+									<p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware.</p>
+									<h4>Mark Alviro Wiens</h4>
+									<div class="rating">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star-half-o"></i>
+									</div>
+								</div>
+							</div>
+        				</div>
+        			</div>
+        			<div class="item">
+        				<div class="testi_item">
+							<div class="media">
+								<div class="d-flex">
+									<img src="img/testimonials/testi-1.png" alt="">
+								</div>
+								<div class="media-body">
+									<p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware.</p>
+									<h4>Mark Alviro Wiens</h4>
+									<div class="rating">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star-half-o"></i>
+									</div>
+								</div>
+							</div>
+        				</div>
+        			</div>
+        			<div class="item">
+        				<div class="testi_item">
+							<div class="media">
+								<div class="d-flex">
+									<img src="img/testimonials/testi-2.png" alt="">
+								</div>
+								<div class="media-body">
+									<p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware.</p>
+									<h4>Mark Alviro Wiens</h4>
+									<div class="rating">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star-half-o"></i>
+									</div>
+								</div>
+							</div>
+        				</div>
+        			</div>
+        			<div class="item">
+        				<div class="testi_item">
+							<div class="media">
+								<div class="d-flex">
+									<img src="img/testimonials/testi-1.png" alt="">
+								</div>
+								<div class="media-body">
+									<p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware.</p>
+									<h4>Mark Alviro Wiens</h4>
+									<div class="rating">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star-half-o"></i>
+									</div>
+								</div>
+							</div>
+        				</div>
+        			</div>
+        			<div class="item">
+        				<div class="testi_item">
+							<div class="media">
+								<div class="d-flex">
+									<img src="img/testimonials/testi-2.png" alt="">
+								</div>
+								<div class="media-body">
+									<p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware.</p>
+									<h4>Mark Alviro Wiens</h4>
+									<div class="rating">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star-half-o"></i>
+									</div>
+								</div>
+							</div>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        </section>
+        
+        <!--================Screen Area =================-->
+        <section class="screen_area text-center p_120">
+        	<div class="container">
+        		<div class="main_title">
+        			<h2>Unique Screens that work perfectly</h2>
+        			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+        		</div>
+        		<img class="img-fluid" src="img/banner/home-left-1.png" alt="">
+        	</div>
+        </section>
+        <!--================End Screen Area =================-->
+        
+        <!--================Made Life Area =================-->
+        <section class="made_life_area p_120">
+        	<div class="container">
+        		<div class="made_life_inner">
+					<div class="row made_life_text">
+						<div class="col-lg-6">
+							<div class="left_side_text">
+								<h3>We’ve made a life <br />that will change you</h3>
+								<h6>We are here to listen from you deliver exellence</h6>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temp or incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
+								<a class="main_btn" href="#">Get Started Now</a>
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="chart_img">
+								<img class="img-fluid" src="img/browser.png" alt="">
+							</div>
+						</div>
+					</div>
+        		</div>
+        	</div>
+        </section>
+        <!--================End Made Life Area =================-->
+        
+        <!--================Price Area =================-->
+        <section class="price_area p_120">
+        	<div class="container">
+        		<div class="main_title">
+        			<h2>Choose Your Price Plan</h2>
+        			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+        		</div>
+        		<div class="price_inner row">
+        			<div class="col-lg-4">
+        				<div class="price_item">
+        					<div class="price_head">
+        						<h4>Real Basic</h4>
+        					</div>
+        					<div class="price_body">
+        						<ul class="list">
+        							<li><a href="#">2.5 GB Space</a></li>
+        							<li><a href="#">Secure Online Transfer</a></li>
+        							<li><a href="#">Unlimited Styles</a></li>
+        							<li><a href="#">Customer Service</a></li>
+        						</ul>
+        					</div>
+        					<div class="price_footer">
+        						<h3><span class="dlr">$</span> 39 <span class="month">Per <br />Month</span></h3>
+        						<a class="main_btn" href="#">Get Started</a>
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col-lg-4">
+        				<div class="price_item">
+        					<div class="price_head">
+        						<h4>Real Standard</h4>
+        					</div>
+        					<div class="price_body">
+        						<ul class="list">
+        							<li><a href="#">10 GB Space</a></li>
+        							<li><a href="#">Secure Online Transfer</a></li>
+        							<li><a href="#">Unlimited Styles</a></li>
+        							<li><a href="#">Customer Service</a></li>
+        						</ul>
+        					</div>
+        					<div class="price_footer">
+        						<h3><span class="dlr">$</span> 69 <span class="month">Per <br />Month</span></h3>
+        						<a class="main_btn" href="#">Get Started</a>
+        					</div>
+        				</div>
+        			</div>
+        			<div class="col-lg-4">
+        				<div class="price_item">
+        					<div class="price_head">
+        						<h4>Real Ultimate</h4>
+        					</div>
+        					<div class="price_body">
+        						<ul class="list">
+        							<li><a href="#">Unlimited Space</a></li>
+        							<li><a href="#">Secure Online Transfer</a></li>
+        							<li><a href="#">Unlimited Styles</a></li>
+        							<li><a href="#">Customer Service</a></li>
+        						</ul>
+        					</div>
+        					<div class="price_footer">
+        						<h3><span class="dlr">$</span> 99 <span class="month">Per <br />Month</span></h3>
+        						<a class="main_btn" href="#">Get Started</a>
+        					</div>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        </section>
+        <!--================End Price Area =================-->
+        
+        <!--================Testimonials Area =================-->
+        <section class="testimonials_area p_120">
+        	<div class="container">
+        		<div class="main_title">
+        			<h2>Feedback from Customers</h2>
+        			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+        		</div>
+        		<div class="testi_slider owl-carousel">
+        			<div class="item">
+        				<div class="testi_item">
+							<div class="media">
+								<div class="d-flex">
+									<img src="img/testimonials/testi-1.png" alt="">
+								</div>
+								<div class="media-body">
+									<p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware.</p>
+									<h4>Mark Alviro Wiens</h4>
+									<div class="rating">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star-half-o"></i>
+									</div>
+								</div>
+							</div>
+        				</div>
+        			</div>
+        			<div class="item">
+        				<div class="testi_item">
+							<div class="media">
+								<div class="d-flex">
+									<img src="img/testimonials/testi-2.png" alt="">
+								</div>
+								<div class="media-body">
+									<p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware.</p>
+									<h4>Mark Alviro Wiens</h4>
+									<div class="rating">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star-half-o"></i>
+									</div>
+								</div>
+							</div>
+        				</div>
+        			</div>
+        			<div class="item">
+        				<div class="testi_item">
+							<div class="media">
+								<div class="d-flex">
+									<img src="img/testimonials/testi-1.png" alt="">
+								</div>
+								<div class="media-body">
+									<p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware.</p>
+									<h4>Mark Alviro Wiens</h4>
+									<div class="rating">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star-half-o"></i>
+									</div>
+								</div>
+							</div>
+        				</div>
+        			</div>
+        			<div class="item">
+        				<div class="testi_item">
+							<div class="media">
+								<div class="d-flex">
+									<img src="img/testimonials/testi-2.png" alt="">
+								</div>
+								<div class="media-body">
+									<p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware.</p>
+									<h4>Mark Alviro Wiens</h4>
+									<div class="rating">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star-half-o"></i>
+									</div>
+								</div>
+							</div>
+        				</div>
+        			</div>
+        			<div class="item">
+        				<div class="testi_item">
+							<div class="media">
+								<div class="d-flex">
+									<img src="img/testimonials/testi-1.png" alt="">
+								</div>
+								<div class="media-body">
+									<p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware.</p>
+									<h4>Mark Alviro Wiens</h4>
+									<div class="rating">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star-half-o"></i>
+									</div>
+								</div>
+							</div>
+        				</div>
+        			</div>
+        			<div class="item">
+        				<div class="testi_item">
+							<div class="media">
+								<div class="d-flex">
+									<img src="img/testimonials/testi-2.png" alt="">
+								</div>
+								<div class="media-body">
+									<p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker, projector, hardware.</p>
+									<h4>Mark Alviro Wiens</h4>
+									<div class="rating">
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star"></i>
+										<i class="fa fa-star-half-o"></i>
+									</div>
+								</div>
+							</div>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        </section>
+        <!--================End Testimonials Area =================-->
+        
+        <!--================Made Life Area =================-->
+        <section class="made_life_area made_white p_120">
+        	<div class="container">
+        		<div class="made_life_inner">
+					<div class="row made_life_text">
+						<div class="col-lg-6">
+							<div class="chart_img">
+								<img class="img-fluid" src="img/banner/home-left-1.png" alt="">
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="left_side_text">
+								<h3>We’ve made a life <br />that will change you</h3>
+								<h6>We are here to listen from you deliver exellence</h6>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temp or incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
+								<a class="main_btn" href="#">Get Started Now</a>
+							</div>
+						</div>
+					</div>
+        		</div>
+        	</div>
+        </section>
+        <!--================End Made Life Area =================-->
+        
+        <!--================Impress Area =================-->
+        <section class="impress_area p_120">
+        	<div class="container">
+        		<div class="impress_inner">
+					<h2>Got Impressed to our features?</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+					<a class="banner_btn2" href="#">Request Free Demo</a>
+        		</div>
+        	</div>
+        </section>
+        <!--================End Impress Area =================-->
+        
+        <!--================Footer Area =================-->
+        <footer class="footer_area p_120">
+        	<div class="container">
+        		<div class="row footer_inner">
+        			<div class="col-lg-5 col-sm-6">
+        				<aside class="f_widget ab_widget">
+        					<div class="f_title">
+        						<h3>About Me</h3>
+        					</div>
+        					<p>Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills,</p>
+        					<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+        				</aside>
+        			</div>
+        			<div class="col-lg-5 col-sm-6">
+        				<aside class="f_widget news_widget">
+        					<div class="f_title">
+        						<h3>Newsletter</h3>
+        					</div>
+        					<p>Stay updated with our latest trends</p>
+        					<div id="mc_embed_signup">
+                                <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative">
+                                	<div class="input-group d-flex flex-row">
+                                        <input name="EMAIL" placeholder="Enter email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address '" required="" type="email">
+                                        <button class="btn sub-btn"><span class="lnr lnr-arrow-right"></span></button>		
+                                    </div>				
+                                    <div class="mt-10 info"></div>
+                                </form>
+                            </div>
+        				</aside>
+        			</div>
+        			<div class="col-lg-2">
+        				<aside class="f_widget social_widget">
+        					<div class="f_title">
+        						<h3>Follow Me</h3>
+        					</div>
+        					<p>Let us be social</p>
+        					<ul class="list">
+        						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+        						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+        						<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+        						<li><a href="#"><i class="fa fa-behance"></i></a></li>
+        					</ul>
+        				</aside>
+        			</div>
+        		</div>
+        	</div>
+        </footer>
+        <!--================End Footer Area =================-->
+        
+        
+        
+        
+        
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/popper.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/stellar.js"></script>
+        <script src="vendors/lightbox/simpleLightbox.min.js"></script>
+        <script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
+        <script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
+        <script src="vendors/isotope/isotope-min.js"></script>
+        <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+        <script src="js/jquery.ajaxchimp.min.js"></script>
+        <script src="vendors/counter-up/jquery.waypoints.min.js"></script>
+        <script src="vendors/counter-up/jquery.counterup.min.js"></script>
+        <script src="js/mail-script.js"></script>
+        <!--gmaps Js-->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+        <script src="js/gmaps.min.js"></script>
+        <script src="js/theme.js"></script>
+    </body>
 </html>
